@@ -112,7 +112,12 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-[#9001FE] to-[#6FFE01]">
+    <section id="contact" className="py-24 bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
@@ -123,13 +128,13 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
           </p>
         </div>
 
-        <div className="bg-gray-800 rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-700">
+        <div className="bg-slate-800/90 backdrop-blur-md rounded-3xl p-8 lg:p-12 shadow-2xl border border-slate-600/30">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Name */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <User className="h-4 w-4 text-[#9001FE]" />
+                  <User className="h-4 w-4 text-cyan-400" />
                   <span>👤 Nom complet *</span>
                 </label>
                 <input
@@ -137,7 +142,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.name ? 'border-red-400' : 'border-gray-600'
                   }`}
                   placeholder="Votre nom et prénom"
@@ -148,7 +153,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               {/* Email */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <Mail className="h-4 w-4 text-[#9001FE]" />
+                  <Mail className="h-4 w-4 text-cyan-400" />
                   <span>✉️ Email *</span>
                 </label>
                 <input
@@ -156,7 +161,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.email ? 'border-red-400' : 'border-gray-600'
                   }`}
                   placeholder="votre@email.com"
@@ -167,7 +172,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               {/* Phone */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <Phone className="h-4 w-4 text-[#9001FE]" />
+                  <Phone className="h-4 w-4 text-cyan-400" />
                   <span>📞 Téléphone *</span>
                 </label>
                 <input
@@ -175,7 +180,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.phone ? 'border-red-400' : 'border-gray-600'
                   }`}
                   placeholder="06 12 34 56 78"
@@ -186,20 +191,20 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               {/* Departure */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <MapPin className="h-4 w-4 text-[#9001FE]" />
+                  <MapPin className="h-4 w-4 text-cyan-400" />
                   <span>🏠 Lieu de départ *</span>
                 </label>
                 <select
                   name="departure"
                   value={formData.departure}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.departure ? 'border-red-400' : 'border-gray-600'
                   }`}
                 >
-                  <option value="" className="bg-gray-700">📍 Sélectionnez votre ville</option>
+                  <option value="" className="bg-slate-700">📍 Sélectionnez votre ville</option>
                   {DEPARTURE_CITIES.map(city => (
-                    <option key={city} value={city} className="bg-gray-700">{city}</option>
+                    <option key={city} value={city} className="bg-slate-700">{city}</option>
                   ))}
                 </select>
                 {errors.departure && <p className="mt-1 text-sm text-red-600">{errors.departure}</p>}
@@ -208,20 +213,20 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               {/* Arrival */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <MapPin className="h-4 w-4 text-[#9001FE]" />
+                  <MapPin className="h-4 w-4 text-cyan-400" />
                   <span>🏁 Lieu d'arrivée *</span>
                 </label>
                 <select
                   name="arrival"
                   value={formData.arrival}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.arrival ? 'border-red-400' : 'border-gray-600'
                   }`}
                 >
-                  <option value="" className="bg-gray-700">🎯 Sélectionnez la ville d'arrivée</option>
+                  <option value="" className="bg-slate-700">🎯 Sélectionnez la ville d'arrivée</option>
                   {FRENCH_CITIES.map(city => (
-                    <option key={city} value={city} className="bg-gray-700">{city}
+                    <option key={city} value={city} className="bg-slate-700">{city}
                     </option>
                   ))}
                 </select>
@@ -231,7 +236,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               {/* Date */}
               <div>
                 <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                  <Calendar className="h-4 w-4 text-[#9001FE]" />
+                  <Calendar className="h-4 w-4 text-cyan-400" />
                   <span>📅 Date de transport *</span>
                 </label>
                 <input
@@ -239,7 +244,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
-                  className={`w-full p-4 border rounded-xl bg-gray-700 text-white focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all ${
+                  className={`w-full p-4 border rounded-xl bg-slate-700/80 backdrop-blur-sm text-white focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-lg hover:shadow-xl ${
                     errors.date ? 'border-red-400' : 'border-gray-600'
                   }`}
                 />
@@ -250,7 +255,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
             {/* Remarks */}
             <div>
               <label className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                <MessageSquare className="h-4 w-4 text-[#9001FE]" />
+                <MessageSquare className="h-4 w-4 text-cyan-400" />
                 <span>💬 Remarques ou demandes spéciales</span>
               </label>
               <textarea
@@ -258,7 +263,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
                 value={formData.remarks}
                 onChange={handleChange}
                 rows={4}
-                className="w-full p-4 border border-gray-600 bg-gray-700 text-white rounded-xl focus:ring-2 focus:ring-[#9001FE] focus:border-transparent transition-all resize-none"
+                className="w-full p-4 border border-gray-600 bg-slate-700/80 backdrop-blur-sm text-white rounded-xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all resize-none shadow-lg hover:shadow-xl"
                 placeholder="🚴‍♂️ Précisez le type de vélo, des demandes particulières, etc."
                 placeholder="🚴‍♂️ Précisez le type de vélo, des demandes particulières, autre ville de départ, etc."
               />
@@ -269,7 +274,7 @@ const ContactFormComponent: React.FC<ContactFormProps> = ({ simulatorData }) => 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-gradient-to-r from-[#9001FE] to-[#6FFE01] text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center space-x-2 mx-auto"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center space-x-2 mx-auto"
               >
                 {isSubmitting ? (
                   <>

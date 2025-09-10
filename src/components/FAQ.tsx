@@ -44,18 +44,23 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-gray-900">
+    <section className="py-24 bg-slate-900 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800/30 to-slate-900/30"></div>
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
-            <div className="bg-gradient-to-r from-[#9001FE] to-[#6FFE01] p-3 rounded-full">
+            <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-3 rounded-full shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
               <HelpCircle className="h-8 w-8 text-white" />
             </div>
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             ❓ Les Questions qu'on nous Pose Tout le Temps !
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-slate-300">
             🎯 Parce qu\'entre passionnés, on se comprend ! Toutes les réponses à vos interrogations de perfectionnistes 🚴‍♂️
           </p>
         </div>
@@ -64,28 +69,28 @@ const FAQ: React.FC = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 overflow-hidden"
+              className="bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-xl border border-slate-700/50 overflow-hidden hover:border-blue-500/30 transition-all duration-300"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-700 transition-colors cursor-pointer"
+                className="w-full p-6 text-left flex justify-between items-center hover:bg-slate-700/50 transition-all duration-300 cursor-pointer"
               >
                 <h3 className="text-lg font-semibold text-white pr-8">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
                   {openIndex === index ? (
-                    <ChevronUp className="h-5 w-5 text-[#9001FE]" />
+                    <ChevronUp className="h-5 w-5 text-cyan-400 transition-transform duration-300" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-gray-500" />
+                    <ChevronDown className="h-5 w-5 text-slate-400 transition-transform duration-300" />
                   )}
                 </div>
               </button>
               
               {openIndex === index && (
                 <div className="px-6 pb-6">
-                  <div className="border-t border-gray-700 pt-4">
-                    <p className="text-gray-300 leading-relaxed">
+                  <div className="border-t border-slate-700/50 pt-4">
+                    <p className="text-slate-300 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -96,12 +101,12 @@ const FAQ: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-slate-400 mb-4">
             🤔 Vous ne trouvez pas la réponse à votre question ?
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-[#9001FE] to-[#6FFE01] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300"
           >
             📞 Contactez-nous
           </button>
