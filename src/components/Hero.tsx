@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="text-center animate-fade-in">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            🚴‍♂️ Fini les Galères !
+            🚴‍♂️ Bonjour les Galères !
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-300 bg-clip-text text-transparent animate-pulse">Votre Vélo Arrive Avant Vous ! 🏆</span>
           </h1>
